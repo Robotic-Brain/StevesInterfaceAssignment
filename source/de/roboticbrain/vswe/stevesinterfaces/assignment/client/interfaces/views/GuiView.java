@@ -106,12 +106,20 @@ public abstract class GuiView {
 	public abstract void drawBackground(GuiContainerViewContainer gui, int mouseX, int mouseY);
 	
 	/**
-	 * Draws all hover effects of itself and all subviews (if any)
+	 * Draws all foreground stuff of itself and all subviews (if any)
 	 * @param gui
 	 * @param mouseX
 	 * @param mouseY
 	 */
 	public abstract void drawForeground(GuiContainerViewContainer gui, int mouseX, int mouseY);
+	
+	/**
+	 * Draws all hover effects of itself and all subviews (if any)
+	 * @param gui
+	 * @param mouseX
+	 * @param mouseY
+	 */
+	public abstract void drawHoverBoxes(GuiContainerViewContainer gui, int mouseX, int mouseY);
 	
 	/**
 	 * Returns true if point is within view

@@ -65,6 +65,7 @@ public class GuiWoodGenerator extends GuiContainerViewContainer implements IGuiC
 		
 		// Draw main view
 		mainView.drawForeground(this, mouseX, mouseY);
+		mainView.drawHoverBoxes(this, mouseX, mouseY);
 	}
 	
 	@Override

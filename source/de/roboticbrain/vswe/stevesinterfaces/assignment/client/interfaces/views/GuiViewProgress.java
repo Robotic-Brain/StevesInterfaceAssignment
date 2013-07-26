@@ -47,22 +47,6 @@ public class GuiViewProgress extends GuiView {
 	
 	@Override
 	public void drawForeground(GuiContainerViewContainer gui, int mouseX, int mouseY) {
-		if (inRect(mouseX, mouseY)) {
-			ArrayList<String> text = new ArrayList<String>();
-			if (hoverString != null) {
-				text.add(hoverString);
-			}
-			if (showValue) {
-				String line = "" + GuiColor.LIGHTGRAY + source.getValue();
-				if (source.getMaxValue() > source.getMinValue()) {
-					line += " / " + source.getMaxValue();
-				}
-				text.add(line);
-			}
-			if (!text.isEmpty()) {
-				gui.drawHoveringText(text, mouseX, mouseY, gui.getFontRenderer());
-			}
-		}
 	}
 	
 	/**
@@ -97,6 +81,26 @@ public class GuiViewProgress extends GuiView {
 	 */
 	public void setValueVisible(boolean flag) {
 		showValue = flag;
+	}
+
+	@Override
+	public void drawHoverBoxes(GuiContainerViewContainer gui, int mouseX, int mouseY) {
+		if (inRect(mouseX, mouseY)) {
+			ArrayList<String> text = new ArrayList<String>();
+			if (hoverString != null) {
+				text.add(hoverString);
+			}
+			if (showValue) {
+				String line = "" + GuiColor.LIGHTGRAY + source.getValue();
+				if (source.getMaxValue() > source.getMinValue()) {
+					line += " / " + source.getMaxValue();
+				}
+				text.add(line);
+			}
+			if (!text.isEmpty()) {
+				gui.drawHoveringText(text, mouseX, mouseY, gui.getFontRenderer());
+			}
+		}
 	}
 	
 }

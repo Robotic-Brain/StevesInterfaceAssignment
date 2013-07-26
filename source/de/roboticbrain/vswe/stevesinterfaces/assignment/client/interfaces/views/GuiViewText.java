@@ -31,10 +31,14 @@ public class GuiViewText extends GuiView {
 	 */
 	@Override
 	public void drawForeground(GuiContainerViewContainer gui, int mouseX, int mouseY) {
-		GL11.glColor4f(1, 1, 1, 1);
+		GL11.glColor4f(1F, 1F, 1F, 1F);
 		int posX = (w - gui.getFontRenderer().getStringWidth(text)) / 2 + convertXtoScreen(0);
 		int posY = (h - gui.getFontRenderer().FONT_HEIGHT) / 2 + convertYtoScreen(0) + STRING_DESCENT;
 		gui.getFontRenderer().drawString(text, posX, posY, 0xFFFFFF);
+	}
+
+	@Override
+	public void drawHoverBoxes(GuiContainerViewContainer gui, int mouseX, int mouseY) {
 	}
 	
 }

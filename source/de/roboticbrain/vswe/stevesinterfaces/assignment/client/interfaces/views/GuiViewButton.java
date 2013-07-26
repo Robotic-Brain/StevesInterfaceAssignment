@@ -65,16 +65,6 @@ public class GuiViewButton extends GuiView {
 	@Override
 	public void drawForeground(GuiContainerViewContainer gui, int mouseX, int mouseY) {
 		contentView.drawForeground(gui, mouseX - x, mouseY - y);
-		
-		if (inRect(mouseX, mouseY)) {
-			if (tooltip != null) {
-				ArrayList<String> list = new ArrayList<String>();
-				list.add(tooltip);
-				
-				// After this Method is called all text goes crazy?!
-				gui.drawHoveringText(list, mouseX, mouseY, gui.getFontRenderer());
-			}
-		}
 	}
 	
 	/**
@@ -130,6 +120,21 @@ public class GuiViewButton extends GuiView {
 	public void setContentView(GuiView view) {
 		contentView = view;
 		view.setParentView(this);
+	}
+
+	@Override
+	public void drawHoverBoxes(GuiContainerViewContainer gui, int mouseX, int mouseY) {
+		if (inRect(mouseX, mouseY)) {
+			if (tooltip != null) {
+				ArrayList<String> list = new ArrayList<String>();
+				list.add(tooltip);
+				
+				// After this Method is called all text goes crazy?!
+				gui.drawHoveringText(list, mouseX, mouseY, gui.getFontRenderer());
+			}
+		}
+		
+		contentView.drawHoverBoxes(gui, mouseX, mouseY);
 	}
 	
 }

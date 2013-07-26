@@ -101,4 +101,11 @@ public class GuiViewWrapper extends GuiView implements IViewContainer {
 	public int convertYtoScreen(int y) {
 		return y;
 	}
+
+	@Override
+	public void drawHoverBoxes(GuiContainerViewContainer gui, int mouseX, int mouseY) {
+		for (GuiView view : contentViews) {
+			view.drawHoverBoxes(gui, convertXtoLocal(mouseX), convertYtoLocal(mouseY));
+		}
+	}
 }
